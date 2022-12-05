@@ -1,3 +1,6 @@
 module.exports.like = function (req, res) {
-    return res.send(`<h1>Like post</h1>`);
+    return res.render('postLike', {
+        title: "like",
+        heading: "Like button clicked by user"
+    });
 }

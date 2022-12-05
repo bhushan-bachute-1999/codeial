@@ -1,3 +1,6 @@
 module.exports.contact = function (req, res) {
-    return res.send(`<h1>Contact page</h1>`);
+    return res.render('contact', {
+        title: "Contact",
+        heading: "Contact page renderd via views"
+    });
 }
