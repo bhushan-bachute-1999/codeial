@@ -1,0 +1,16 @@
+{
+  "name": "codeial",
+  "version": "1.0.0",
+  "description": "Codeial app",
+  "main": "server.js",
+  "scripts": {
+    "start" : "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Bhushan bachute",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
