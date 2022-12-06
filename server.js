@@ -7,6 +7,10 @@ const app = express();
 app.use(expressLayouts);
 app.set('layout', 'layouts');//Select the layout which we want to use
 
+app.set('layout extractStyles', true);// Whenever the link tag is enountered place it in the head of html tag
+app.set('layout extractScripts', true);// Whenever the script tag is enountered place it in the head of html tag
+
+app.use(express.static('./assets'));
 app.set('view engine', 'ejs');//Setup view engine
 app.set('views', './views');//Give path to view folder
 app.use('/', require('./routes/index'));//When any route forward to routes/index.js
