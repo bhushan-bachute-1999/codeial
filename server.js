@@ -2,10 +2,11 @@ const express = require('express'); // Include module express
 const port = 8000;// Define port
 const expressLayouts = require('express-ejs-layouts');// Use layouts library
 const bodyParse = require('body-parser');
-
+const cookieParser = require('cookie-parser');
 
 const app = express();
 app.use(express.urlencoded());
+app.use(cookieParser());
 
 app.use(expressLayouts);
 app.set('layout', 'layouts');//Select the layout which we want to use
