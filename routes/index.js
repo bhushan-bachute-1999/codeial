@@ -11,5 +11,6 @@ router.get('/contact', contactController.contact);
 router.use('/post', require('./post'));
 router.use('/sign_up', require('./sign_up'));
 router.use('/log_in', require('./log_in'));
+router.use('/sign_out', require('./sign_out'));
 
 module.exports = router;

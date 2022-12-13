@@ -19,7 +19,8 @@ module.exports.validate = function (req, res) {
             }
 
             //If password entered is correct
-            res.cookie('user_id', user._id);
+            console.log(user.id);
+            res.cookie('user_id', user.id);
             return res.redirect('/user/profile');
         }
         else {
