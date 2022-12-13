@@ -5,18 +5,27 @@ module.exports.validate = function (req, res) {
     let password = req.query.password;
     console.log(`Email : ${email} and Password : ${password}`);
 
-    User.find({email: email}, function (err, userEmail) {
+    //Check if user exist already
+    User.findOne({email: email}, function (err, user) {
         if (err) {
-            console.log(`User email id not found`);
+            console.log(`Error in seraching user while log in ${err}`);;
             return;
         }
-        User.find({password: password}, function (err, userPassword) {
-            if (err) {
-                console.log(`Password not match`);
-                return;
+        
+        if (user) {
+            //User email found
+            if (user.password != password) {//Check if password entered is correct or not
+                return res.redirect('back');
             }
 
-            return res.send(`<h1>User validated </h1>`);
-        });
+            //If password entered is correct
+            res.cookie('user_id', user._id);
+            return res.redirect('/user/profile');
+        }
+        else {
+            //User not found
+            return res.redirect('back');
+
+        }
     })
 }
