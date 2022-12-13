@@ -1,9 +1,11 @@
 const express = require('express'); // Include module express
 const port = 8000;// Define port
 const expressLayouts = require('express-ejs-layouts');// Use layouts library
-const db = require('./config/mongoose');
+const bodyParse = require('body-parser');
+
 
 const app = express();
+app.use(express.urlencoded());
 
 app.use(expressLayouts);
 app.set('layout', 'layouts');//Select the layout which we want to use

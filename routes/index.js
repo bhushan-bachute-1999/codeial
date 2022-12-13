@@ -9,5 +9,7 @@ router.get('/', homeController.home);//When "/" go to home controller
 router.use('/user', require('./users'));// When "/user" go to user controller
 router.get('/contact', contactController.contact);
 router.use('/post', require('./post'));
+router.use('/sign_up', require('./sign_up'));
+router.use('/log_in', require('./log_in'));
 
 module.exports = router;
