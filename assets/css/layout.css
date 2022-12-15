@@ -1,21 +1,114 @@
-body{
-    margin: 0%;
-    text-align: center;
-}
-a {
-    font-size: 1.2rem;
-    border: 1px solid black;
-    padding: 5px 10px;
-    text-decoration: none;
-    background-color: lightblue;
-    color: black;
-    margin-bottom: 50px;
+body {
+  margin: 0%;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
-input {
-    margin-bottom: 10px;
+body .main-body {
+  display: flex;
+  justify-content: center;
 }
 
-li{
-    margin-bottom: 20px;
+body .main-body form {
+  border: 10px solid orange;
+  margin: 20px 0px;
+  padding: 10px 20px;
+  background-color: skyblue;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+body .main-body form label {
+  margin-right: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+body .main-body form input {
+  height: 25px;
+}
+
+body .main-body form button {
+  padding: 5px 10px;
+  background-color: greenyellow;
+  width: 40%;
+  margin: auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+body .header-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 1px;
+  background-color: orange;
+  height: 8%;
+}
+
+body .header-bar h1 {
+  margin: 0%;
+  padding: 0%;
+  width: 70%;
+}
+
+body .header-bar ul {
+  list-style: none;
+  margin: 0%;
+  padding: 0%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 15%;
+}
+
+body .header-bar ul li i {
+  margin-right: 5px;
+}
+
+body .header-bar ul li a {
+  font-size: 1.2rem;
+  border: 1px solid black;
+  padding: 5px 10px;
+  text-decoration: none;
+  background-color: lightblue;
+  color: black;
+}
+
+body .footer {
+  background-color: black;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 0%;
+}
+
+body .footer h5 {
+  margin-top: 10px;
+  color: white;
+  display: inline-block;
+  width: 20%;
+}
+
+body .footer ul {
+  list-style: none;
+  margin: 0%;
+  padding: 0%;
+  align-items: center;
+  width: 15%;
+}
+
+body .footer ul li {
+  margin-bottom: 10px;
+}
+
+body .footer ul li a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: white;
 }

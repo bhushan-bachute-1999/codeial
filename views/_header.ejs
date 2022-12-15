@@ -1,19 +1,24 @@
-<header>
-    Header part
-</header>
-
-<ul>
-    <% if(locals.user) { %>
-        <li><%= user.name %></li>
-        <li>
-            <a href="/sign_out">Sign out</a>
-        </li>
-    <% } else { %>
-        <li>
-            <a href="/log_in">Log in</a>
-        </li>
-        <li>
-            <a href="/sign_up">Sign up</a>
-        </li>
-    <% } %>
-</ul>
+<div class="header-bar">
+    <h1>
+        Codeial
+    </h1>
+    
+    <ul>
+        <% if(locals.user) { %>
+            <li>
+                <i class="fa-solid fa-user"></i>
+                <%= user.name %>
+            </li>
+            <li>
+                <a href="/sign_out">Sign out</a>
+            </li>
+        <% } else { %>
+            <li>
+                <a href="/log_in">Log in</a>
+            </li>
+            <li>
+                <a href="/sign_up">Sign up</a>
+            </li>
+        <% } %>
+    </ul>
+</div>

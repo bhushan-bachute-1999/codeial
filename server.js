@@ -9,14 +9,23 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo');
+const saasMiddleware = require('node-sass-middleware');
 
 const app = express();
+app.use(saasMiddleware({
+    src: './assets/scss',
+    dest: './assets/css',
+    debug: true,
+    outputStyle: 'expanded',
+    prefix: '/css'
+}));
 
 app.set('layout', 'layouts');//Select the layout which we want to use
 app.set('layout extractStyles', true);// Whenever the link tag is enountered place it in the head of html tag
 app.set('layout extractScripts', true);// Whenever the script tag is enountered place it in the head of html tag
 app.set('view engine', 'ejs');//Setup view engine
 app.set('views', './views');//Give path to view folder
+
 
 app.use(express.urlencoded());
 app.use(cookieParser());

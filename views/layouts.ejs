@@ -7,11 +7,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/layout.css">
     <%- style %>
+    <script src="https://kit.fontawesome.com/421af4dd0a.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <%- include('_header') %>
-    <%- body %>
-    <%- include('_footer') %>
+    <div class="main-body">
+        <%- body %>
+    </div>
+    <div class="footer">
+        <%- include('_footer') %>
+    </div>
     <%- script %>
 </body>
 </html>

@@ -1,28 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/home.css">
-</head>
-<body>
-    <form action="/sign_up/user_created" method="post">
-        <lable for="email">Email</lable>
+<form action="/sign_up/user_created" method="post">
+    <div>
+        <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="abc@gmail.com" required>
-        <br>
+    </div>
+    <br>
+    <div>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
-        <br>
+    </div><br>
+    <div>
         <label for="cpassword">Confirm Password</label>
         <input type="password" id="cpassword" name="confirmPassword" required>
-        <br>
-
+    </div><br>
+    <div>
         <label for="name">Name : </label>
         <input type="text" id="name" name="name" placeholder="Enter username">
+    </div><br>
+    
 
-        <button type="submit">Sign up</button>
-    </form>
-</body>
-</html>
+    <button type="submit">Sign up</button>
+</form>
