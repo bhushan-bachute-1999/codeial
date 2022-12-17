@@ -15,7 +15,7 @@ const app = express();
 app.use(saasMiddleware({
     src: './assets/scss',
     dest: './assets/css',
-    debug: true,
+    // debug: true,
     outputStyle: 'expanded',
     prefix: '/css'
 }));

@@ -4,39 +4,36 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
+    background-color: skyblue;
 
     .main-body {
-        display: flex;
-        justify-content: center;
-        // height: 82vh;
+        margin: auto;
+        margin-top: 10px;
 
-        form {
+        .feed-posts {
             border: 10px solid orange;
-            margin: 20px 0px;
-            padding: 10px 20px;
-            background-color: skyblue;
             border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            padding: 5px 10px;
+            width: 90%;
 
-            label {
-                margin-right: 20px;
-                font-weight: bold;
-                margin-bottom: 5px;
+            h3 {
+                margin: 0%;
+                padding: 0%;
+                margin-bottom: 10px;
             }
 
-            input {
-                height: 25px;
-            }
+            .new-post-form {
+                display: flex;
+                align-items: center;
 
-            button {
-                padding: 5px 10px;
-                background-color: greenyellow;
-                width: 40%;
-                margin: auto;
-                font-size: 1.2rem;
-                font-weight: bold;
+                input {
+                    padding: 5px 10px;
+                    background-color: green;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                    margin-left: 10px;
+                }
             }
         }
     }

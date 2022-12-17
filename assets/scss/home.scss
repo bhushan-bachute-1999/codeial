@@ -1,0 +1,103 @@
+.feed-posts {
+    border: 10px solid orange;
+    border-radius: 10px;
+    padding: 5px 10px;
+    width: 90%;
+
+    h3 {
+        margin: 0%;
+        padding: 0%;
+        margin-bottom: 10px;
+    }
+
+    .new-post-form {
+        display: flex;
+        align-items: center;
+
+        input {
+            padding: 5px 10px;
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-left: 10px;
+        }
+    }
+}
+
+.display-posts {
+    width: 500px;
+    border: 2px solid black;
+    margin-top: 10px;
+    height: 55vh;
+    overflow-y: scroll;
+    padding: 5px 10px;
+
+    li {
+        background-color: cornsilk;
+        height: 150px;
+        margin-bottom: 10px;
+        padding: 0px 10px;
+        box-shadow: 0px 0px 1px 2px cornsilk;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+
+
+        h4 {
+            margin: 0%;
+            padding: 5px 0px 0px 5px;
+
+            i {
+                margin-right: 5px;
+            }
+        }
+
+        p {
+            height: 60px;
+            overflow-y: scroll;
+        }
+
+        p::-webkit-scrollbar {
+            display: none;
+        }
+
+        .post-footer {
+            height: 20px;
+            // background-color: tomato;
+            padding: 8px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            div {
+                width: 5%;
+            }
+
+            .like-comment {
+                width: 60%;
+                display: flex;
+                justify-content: space-around;
+            }
+
+            a {
+                width: 20%;
+                font-size: x-large;
+            }
+
+            i {
+                color: black;
+            }
+
+            .like-posts:visited {
+                i {
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+.display-posts::-webkit-scrollbar {
+    display: none;
+}

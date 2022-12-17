@@ -1,3 +1,36 @@
-<h1>
+<link rel="stylesheet" href="/css/home.css">
+<!-- <h1>
     <%= heading %>
-</h1>
+</h1> -->
+<section class="feed-posts">
+    <h3>Post</h3>
+    <% if(locals.user) { %>
+        <form action="/user/post" class="new-post-form" method="post">
+            <textarea name="content" cols="50" rows="5" placeholder="Type here to post..."></textarea>
+            <!-- <br> -->
+            <input type="submit" value="Post">
+        </form>
+    <% } %>
+</section>
+
+<ul class="display-posts">
+    <% for(let post of posts) { %>
+        <li>
+            <h4>
+                <i class="fa-solid fa-user"></i>
+                <%= post.user.name %>
+            </h4>
+            <p><%= post.content %></p>
+            <div class="post-footer">
+                <div class="like-comment">
+                    <a class="like-posts" href="/user/like"><i class="fa-regular fa-heart"></i></i></a>
+                    <a href="/user/comment/?id=<%= post._id %>"><i class="fa-regular fa-comment"></i></a>
+                    <a href="/user/share"><i class="fa-solid fa-share"></i></a>
+                </div>
+                <div>
+                    <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                </div>
+            </div>
+        </li>
+    <% } %>
+</ul>

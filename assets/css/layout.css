@@ -4,41 +4,39 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
+  background-color: skyblue;
 }
 
 body .main-body {
-  display: flex;
-  justify-content: center;
-}
-
-body .main-body form {
-  border: 10px solid orange;
-  margin: 20px 0px;
-  padding: 10px 20px;
-  background-color: skyblue;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-body .main-body form label {
-  margin-right: 20px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-body .main-body form input {
-  height: 25px;
-}
-
-body .main-body form button {
-  padding: 5px 10px;
-  background-color: greenyellow;
-  width: 40%;
   margin: auto;
-  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+body .main-body .feed-posts {
+  border: 10px solid orange;
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: 90%;
+}
+
+body .main-body .feed-posts h3 {
+  margin: 0%;
+  padding: 0%;
+  margin-bottom: 10px;
+}
+
+body .main-body .feed-posts .new-post-form {
+  display: flex;
+  align-items: center;
+}
+
+body .main-body .feed-posts .new-post-form input {
+  padding: 5px 10px;
+  background-color: green;
+  color: white;
   font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: 10px;
 }
 
 body .header-bar {

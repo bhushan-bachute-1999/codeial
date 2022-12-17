@@ -1,0 +1,29 @@
+form {
+    border: 10px solid orange;
+    margin: 20px 0px;
+    padding: 10px 20px;
+    background-color: skyblue;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    label {
+        margin-right: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input {
+        height: 25px;
+    }
+
+    button {
+        padding: 5px 10px;
+        background-color: greenyellow;
+        width: 40%;
+        margin: auto;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+}
