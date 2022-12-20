@@ -20,6 +20,9 @@
                 <%= comment.user.name %>
             </h4>
             <p><%= comment.content %></p>
+            <%  if(locals.user && locals.user.id == comment.user.id) { %> 
+                <a href="/delete/comment/<%= comment._id %>"><i class="fa-solid fa-trash"></i></a>
+            <% } %>
         </li>
     <% } %>
 </ul>

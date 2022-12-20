@@ -4,5 +4,6 @@ const logInController = require('../controllers/log_in');
 
 router.get('/', logInController.logIn);
 router.use('/validate_user', require('./validateUser'));
+// router.use('')
 
 module.exports = router;

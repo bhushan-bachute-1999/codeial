@@ -61,7 +61,10 @@ body .header-bar ul {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 15%;
+}
+
+body .header-bar ul li {
+  margin-right: 15px;
 }
 
 body .header-bar ul li i {

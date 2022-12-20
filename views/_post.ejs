@@ -1,0 +1,24 @@
+<% for(let post of posts) { %>
+    <li>
+        <h4>
+            <i class="fa-solid fa-user"></i>
+            <%= post.user.name %>
+        </h4>
+        <p>
+            <%= post.content %>
+        </p>
+        <div class="post-footer">
+            <div class="like-comment">
+                <a class="like-posts" href="/user/like"><i class="fa-regular fa-heart"></i></i></a>
+                <a href="/user/comment/?id=<%= post._id %>"><i class="fa-regular fa-comment"></i></a>
+                <a href="/user/share"><i class="fa-solid fa-share"></i></a>
+            </div>
+            <div class="delete">
+                <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                <% if((locals.user) && (locals.user.id==post.user.id)){ %>
+                    <a href="/delete/post/?id=<%= post._id %>"><i class="fa-solid fa-trash"></i></a>
+                <% } %>
+            </div>
+        </div>
+    </li>
+<% } %>

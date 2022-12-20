@@ -25,79 +25,131 @@
     }
 }
 
-.display-posts {
-    width: 500px;
-    border: 2px solid black;
-    margin-top: 10px;
-    height: 55vh;
-    overflow-y: scroll;
-    padding: 5px 10px;
+.display_user_post {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 
-    li {
-        background-color: cornsilk;
-        height: 150px;
-        margin-bottom: 10px;
-        padding: 0px 10px;
-        box-shadow: 0px 0px 1px 2px cornsilk;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
+    .display-posts {
+        width: 500px;
+        border: 2px solid black;
+        margin-top: 10px;
+        height: 55vh;
+        overflow-y: scroll;
+        padding: 5px 10px;
 
-
-        h4 {
-            margin: 0%;
-            padding: 5px 0px 0px 5px;
-
-            i {
-                margin-right: 5px;
-            }
-        }
-
-        p {
-            height: 60px;
-            overflow-y: scroll;
-        }
-
-        p::-webkit-scrollbar {
-            display: none;
-        }
-
-        .post-footer {
-            height: 20px;
-            // background-color: tomato;
-            padding: 8px 10px;
+        li {
+            background-color: cornsilk;
+            height: 150px;
+            margin-bottom: 10px;
+            padding: 0px 10px;
+            box-shadow: 0px 0px 1px 2px cornsilk;
+            border-radius: 5px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
 
-            div {
-                width: 5%;
-            }
 
-            .like-comment {
-                width: 60%;
-                display: flex;
-                justify-content: space-around;
-            }
+            h4 {
+                margin: 0%;
+                padding: 5px 0px 0px 5px;
 
-            a {
-                width: 20%;
-                font-size: x-large;
-            }
-
-            i {
-                color: black;
-            }
-
-            .like-posts:visited {
                 i {
-                    color: red;
+                    margin-right: 5px;
                 }
+            }
+
+            p {
+                height: 60px;
+                overflow-y: scroll;
+            }
+
+            p::-webkit-scrollbar {
+                display: none;
+            }
+
+            .post-footer {
+                height: 20px;
+                // background-color: tomato;
+                padding: 8px 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                div {
+                    width: 5%;
+                }
+
+                .like-comment {
+                    width: 60%;
+                    display: flex;
+                    justify-content: space-around;
+
+                    a {
+                        width: 20%;
+                        font-size: x-large;
+                    }
+
+                    i {
+                        color: black;
+                    }
+                }
+
+                .delete {
+                    width: 30%;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+
+                    a {
+                        width: 30%;
+                        font-size: x-large;
+                    }
+
+                    i {
+                        color: black;
+                    }
+
+                }
+
+                .delete:hover .dropdown {
+                    display: block;
+                }
+
             }
         }
     }
-}
 
-.display-posts::-webkit-scrollbar {
-    display: none;
+    .display-posts::-webkit-scrollbar {
+        display: none;
+    }
+
+    .display_user {
+        width: 300px;
+        border: 2px solid black;
+        margin-top: 10px;
+        overflow-y: scroll;
+        padding: 5px 10px;
+        margin-left: 10px;
+
+
+        li {
+            background-color: cornsilk;
+            height: 50px;
+            margin-bottom: 10px;
+            padding: 0px 10px;
+            box-shadow: 0px 0px 1px 2px cornsilk;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+
+            p {
+                height: 60px;
+
+                
+            }
+        }
+    }
+    .display_user::-webkit-scrollbar{
+        display: none;
+    }
 }

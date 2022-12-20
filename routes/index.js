@@ -14,5 +14,6 @@ router.use('/post', require('./post'));
 router.use('/sign_up', require('./sign_up'));
 router.use('/log_in', require('./log_in'));
 router.get('/sign_out', signOutController.sign_out);
+router.use('/delete', require('./delete'));
 
 module.exports = router;
