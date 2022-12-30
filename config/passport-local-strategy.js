@@ -4,20 +4,21 @@ const User = require('../models/user');
 
 //Authenticate the user using passport
 passport.use(new LocalPassport({
-        usernameField: 'email'
-    },
-    function (email, password, done) {
-        console.log(`In passport configuration`);
+    usernameField: 'email',
+    passReqToCallback: true
+},
+    function (req, email, password, done) {
         //Find the user and establish the identity
         User.findOne({ email: email }, function (err, user) {
             if (err) {
-                console.log(`Error in fetching the user ${err}`);
+                req.flash('error', err);
                 return done(err);
             }
 
             //User not present in database or password did not match
             if (!user || user.password != password) {
-                console.log(`Invalid user/ password`);
+                console.log(`Invalid username/ password`);
+                req.flash('error', 'Invalid username/ password');
                 return done(null, false);//No error just authentication is false
             }
 

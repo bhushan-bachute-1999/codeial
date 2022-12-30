@@ -10,6 +10,8 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo');
 const saasMiddleware = require('node-sass-middleware');
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
 
 const app = express();
 app.use(saasMiddleware({
@@ -50,8 +52,10 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(passport.setAuthenticateUser);
+
+app.use(flash());
+app.use(customMware.setFlash);
 
 app.use('/', require('./routes/index'));//When any route forward to routes/index.js
 

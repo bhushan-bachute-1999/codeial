@@ -2,6 +2,7 @@
 const Post = require('../models/post');
 const User = require('../models/user');
 
+/*
 module.exports.home = function (req, res) {
     // if (req.isAuthenticated()) {//If user is logged in then only display post i.e. home page
 
@@ -20,5 +21,27 @@ module.exports.home = function (req, res) {
         })
         
     });
+
+}
+*/
+
+module.exports.home = async function (req, res) {
+    // if (req.isAuthenticated()) {//If user is logged in then only display post i.e. home page
+
+    try {
+        let posts = await Post.find({}).populate('user');
+
+        let users = await User.find({});
+
+        return res.render('home', {
+            title: "Home",
+            heading: "Codeial home page",
+            posts: posts,
+            all_user: users
+        });
+    } catch (error) {
+        console.log(`Error in fetching the user`);
+        return;
+    }
 
 }

@@ -13,9 +13,7 @@
 
 <section class="display_user_post">
     <ul class="display-posts">
-        <% for(let post of posts) { %>
-            <%- include('_post',{content: post}) %>
-                <% } %>
+        <%- include('_post',{content: posts}) %>
     </ul>
     <ul class="display_user">
         <% for(let user of all_user) { %>

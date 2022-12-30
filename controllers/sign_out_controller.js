@@ -5,6 +5,7 @@ module.exports.sign_out = function (req, res) {
             console.log(`Error in signing out ${err}`);
             return;
         }
+        req.flash('success', 'Sign out successfully!!!');
         return res.redirect('/');
     });
 }

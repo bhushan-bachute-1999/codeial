@@ -1,4 +1,4 @@
 module.exports.validate = function (req, res) {
-    console.log(`In validate user controller`);
+    req.flash('success', 'Logged in successfully!!!');
     return res.redirect('/');
 }
