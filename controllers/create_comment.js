@@ -1,5 +1,6 @@
 const Comment = require('../models/comments');
 const Post = require("../models/post");
+const User = require("../models/user");
 
 /*
 module.exports.create = function (req, res) {
@@ -38,9 +39,21 @@ module.exports.create = async function (req, res) {
             post: id
         });
 
-        req.flash('success', 'Commented successfully');
+        let users = await User.findById(req.user.id);
         posts.comment.push(comments);
         posts.save();
+
+        if (req.xhr) {
+            return res.status(200).json({
+                data: {
+                    comment: comments,
+                    user_name: users.name
+
+                },
+                message: "Comment created"
+            })
+        }
+        req.flash('success', 'Commented successfully');
         return res.redirect('back');
     } catch (error) {
         req.flash('error', error);

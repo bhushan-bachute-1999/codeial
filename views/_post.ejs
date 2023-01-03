@@ -1,5 +1,5 @@
-<% for(let post of posts) { %>
-    <li>
+<% for(let post of posts) { %> 
+    <li id="post-<%= post._id%>">
         <h4>
             <i class="fa-solid fa-user"></i>
             <%= post.user.name %>
@@ -16,9 +16,10 @@
             <div class="delete">
                 <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
                 <% if((locals.user) && (locals.user.id==post.user.id)){ %>
-                    <a href="/delete/post/?id=<%= post._id %>"><i class="fa-solid fa-trash"></i></a>
+                    <a class="delete-post-button" href="/delete/post/?id=<%= post._id %>"><i class="fa-solid fa-trash"></i></a>
                 <% } %>
             </div>
         </div>
     </li>
 <% } %>
+

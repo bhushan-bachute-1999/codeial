@@ -9,7 +9,7 @@ const postLikeController = require('../controllers/post_like');
 
 // router.get('/profile', userController.profile);//No authentication to go to profile page
 router.get('/profile', passport.checkAuthentication, userController.profile);//Go to profile page only when user is authenticated
-router.get('/editProfile', userController.editProfile);
+router.post('/editProfile/', userController.editProfile);
 router.post('/post', passport.checkAuthentication, postController.post);
 router.get('/comment', passport.checkAuthentication, commentController.comment);
 router.post('/create-comment', createCommentController.create);

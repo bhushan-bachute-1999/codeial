@@ -3,6 +3,7 @@
     <%= heading %>
 </h1>
 
+<img src="<%= user_detail.avatar %>" alt="<%= user_detail.name %>" width="100">
 <div>
     <h3>
         Name: <%= user_detail.name %>
@@ -12,7 +13,7 @@
 
 <div class="">
     <% if(locals.user.id == user_detail.id){ %>
-        <form action="/user/editProfile/?userId=<%= user_detail.id %>" method="get">
+        <form action="/user/editProfile/?id=<%= user_detail.id%>" enctype="multipart/form-data" method="post">
             <div>
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="abc@gmail.com" required>
@@ -22,7 +23,9 @@
                 <label for="name">Name : </label>
                 <input type="text" id="name" name="name" placeholder="Enter username">
             </div><br>            
-            
+            <div>
+                <input type="file" name="avatar" placeholder="Profile picture">
+            </div>
             <button type="submit">Edit</button>
         </form>
     <% } %>

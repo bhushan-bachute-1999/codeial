@@ -35,6 +35,15 @@ module.exports.deletePost = async function (req, res) {
         if (posts.user == req.user.id) {
             posts.remove();
             await Comment.deleteMany({ post: postId });
+
+            if (req.xhr) {
+                return res.status(200).json({
+                    data:{
+                        postId : postId
+                    },
+                    message: "Post deleted!"
+                })
+            }
             req.flash('success', 'Post deleted successfully');
             return res.redirect('back');
         }
@@ -58,6 +67,15 @@ module.exports.deleteComment = function (req, res) {
                 if (err) {
                     console.log(`Error in deleting the comment from comment array`);
                     return;
+                }
+
+                if (req.xhr) {
+                    return res.status(200).json({
+                        data: {
+                            commentId: req.params.id
+                        },
+                        message: "Deleted successfully"
+                    });
                 }
                 req.flash('success', 'Comment deleted successfully');
                 return res.redirect('back');

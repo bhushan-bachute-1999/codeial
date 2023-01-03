@@ -4,7 +4,6 @@ const expressLayouts = require('express-ejs-layouts');// Use layouts library
 const bodyParse = require('body-parser');
 const cookieParser = require('cookie-parser');
 const db = require('./config/mongoose1');
-//Session creation
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
@@ -12,6 +11,7 @@ const MongoStore = require('connect-mongo');
 const saasMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
+const path = require('path');
 
 const app = express();
 app.use(saasMiddleware({
@@ -28,7 +28,7 @@ app.set('layout extractScripts', true);// Whenever the script tag is enountered 
 app.set('view engine', 'ejs');//Setup view engine
 app.set('views', './views');//Give path to view folder
 
-
+app.use('/uploads', express.static(__dirname + '/uploads')); 
 app.use(express.urlencoded());
 app.use(cookieParser());
 app.use(expressLayouts);

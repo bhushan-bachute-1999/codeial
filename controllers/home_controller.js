@@ -29,7 +29,9 @@ module.exports.home = async function (req, res) {
     // if (req.isAuthenticated()) {//If user is logged in then only display post i.e. home page
 
     try {
-        let posts = await Post.find({}).populate('user');
+        let posts = await Post.find({})
+            .sort('-createdAt')
+            .populate('user');
 
         let users = await User.find({});
 

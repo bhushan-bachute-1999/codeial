@@ -17,12 +17,12 @@
   margin-right: 20px;
 }
 
-.comments-form .new-post-form {
+.comments-form .new-post-form, .comments-form .new-comment-form {
   display: flex;
   align-items: center;
 }
 
-.comments-form .new-post-form input {
+.comments-form .new-post-form input, .comments-form .new-comment-form input {
   padding: 5px 10px;
   background-color: green;
   color: white;

@@ -5,7 +5,7 @@
         Comments
     </h3>
     <% if(locals.user) { %>
-        <form action="/user/create-comment" class="new-post-form" method="post">
+        <form action="/user/create-comment" class="new-comment-form" method="post">
             <textarea name="comment" cols="50" rows="5" placeholder="Type here to post..."></textarea>
             <input type = "hidden" name = "postId" value = <%= postId %>>
             <input type="submit" value="Comment">
@@ -14,15 +14,16 @@
 </section>
 <ul class="display-comments">
     <% for(let comment of post.comment) { %>
-        <li>
+        <li id="comment-<%=comment._id%>">
             <h4>
                 <i class="fa-solid fa-user"></i>
                 <%= comment.user.name %>
             </h4>
             <p><%= comment.content %></p>
             <%  if(locals.user && locals.user.id == comment.user.id) { %> 
-                <a href="/delete/comment/<%= comment._id %>"><i class="fa-solid fa-trash"></i></a>
+                <a class="delete-comment" href="/delete/comment/<%=comment._id%>"><i class="fa-solid fa-trash"></i></a>
             <% } %>
         </li>
     <% } %>
 </ul>
+<script src="/js/comment.js"></script>
