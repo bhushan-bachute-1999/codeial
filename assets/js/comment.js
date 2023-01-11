@@ -33,7 +33,7 @@
         <li id="comment-${data.comment._id}">
             <h4>
                 <i class="fa-solid fa-user"></i>
-                ${data.user_name}
+                ${data.comment.user.name}
             </h4>
             <p>${data.comment.content}</p>
             <a class="delete-comment" href="/delete/comment/${data.comment._id}"><i class="fa-solid fa-trash"></i></a>

@@ -31,7 +31,7 @@ app.set('view engine', 'ejs');//Setup view engine
 app.set('views', './views');//Give path to view folder
 
 app.use('/uploads', express.static(__dirname + '/uploads')); 
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(expressLayouts);
 app.use(express.static('./assets'));
