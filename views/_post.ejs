@@ -9,9 +9,32 @@
         </p>
         <div class="post-footer">
             <div class="like-comment">
-                <a class="like-posts" href="/user/like"><i class="fa-regular fa-heart"></i></i></a>
-                <a href="/user/comment/?id=<%= post._id %>"><i class="fa-regular fa-comment"></i></a>
-                <a href="/user/share"><i class="fa-solid fa-share"></i></a>
+                <% if(locals.user){ %>
+                    <a class="like-posts" href="/user/like/?id=<%=post.id%>&type=Post" data-likes="<%= post.likes.length%>">
+                        <span class="likeCount">
+                            <%= post.likes.length %>
+                        </span>
+                        <i class="fa-regular fa-heart"></i></i></a>
+                <% }else{ %>
+                    <span>0</span>
+                <% } %>
+                <% if(locals.user){ %>
+                    <a href="/user/comment/?id=<%= post._id %>">
+                        <span>
+                            <%= post.comment.length %>
+                        </span>
+                        <i class="fa-regular fa-comment"></i></a>
+                <% }else{ %>
+                    <span>0</span>
+                <% } %>
+                <% if(locals.user){ %>
+                    <a href="/user/share">
+                        <span>0</span>
+                        <i class="fa-solid fa-share"></i>
+                    </a>
+                <% }else{ %>
+                    <span>0</span>
+                <% } %>
             </div>
             <div class="delete">
                 <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
@@ -22,4 +45,6 @@
         </div>
     </li>
 <% } %>
+
+
 

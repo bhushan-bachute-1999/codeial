@@ -1,19 +1,29 @@
 const User = require('../models/user');
 const path = require('path');
 const fs = require('fs');
+const Friend = require('../models/friendship');
 
-module.exports.profile = function (req, res) {
-    User.findById(req.query.id, function (err, user) {
-        if (err) {
-            console.log(`Error in fetching user`);
-            return;
-        }
-        return res.render('user', {
-            title: "User",
-            heading: "User page rendered via views",
-            user_detail: user
-        });
-    })
+module.exports.profile = async function (req, res) {
+    let user = await User.findById(req.query.id);
+    
+    let friendExist = await Friend.findOne({
+        from_user: req.user.id,
+        to_user: req.query.id
+    });
+    // console.log(friendExist);
+    let isFriend;
+    if (friendExist) {
+        isFriend = true;
+    }
+    else {
+        isFriend = false;
+    }
+    return res.render('user', {
+        title: "User",
+        heading: "User page rendered via views",
+        user_detail: user,
+        isFriend : isFriend
+    });
 }
 
 module.exports.editProfile = async function (req, res) {

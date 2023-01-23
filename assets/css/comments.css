@@ -17,12 +17,14 @@
   margin-right: 20px;
 }
 
-.comments-form .new-post-form, .comments-form .new-comment-form {
+.comments-form .new-post-form,
+.comments-form .new-comment-form {
   display: flex;
   align-items: center;
 }
 
-.comments-form .new-post-form input, .comments-form .new-comment-form input {
+.comments-form .new-post-form input,
+.comments-form .new-comment-form input {
   padding: 5px 10px;
   background-color: green;
   color: white;
@@ -42,7 +44,7 @@
 
 .display-comments li {
   background-color: cornsilk;
-  height: 100px;
+  height: 150px;
   margin-bottom: 10px;
   padding: 0px 10px;
   box-shadow: 0px 0px 1px 2px cornsilk;
@@ -83,17 +85,64 @@
 
 .display-comments li .post-footer .like-comment {
   width: 60%;
+  height: 50px;
   display: flex;
+  justify-content: space-between;
+}
+
+.display-comments li .post-footer .like-comment i {
+  color: black;
+}
+
+.display-comments li .post-footer .like-comment div {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  align-items: center;
   justify-content: space-around;
 }
 
-.display-comments li .post-footer a {
-  width: 20%;
+.display-comments li .post-footer .like-comment div span {
+  margin-bottom: 2px;
+  font-size: 0.8rem;
+}
+
+.display-comments li .post-footer .like-comment div a {
+  width: 30%;
   font-size: x-large;
 }
 
-.display-comments li .post-footer i {
+.display-comments li .post-footer .like-comment a {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  align-items: center;
+  justify-content: space-around;
+  text-decoration: none;
+}
+
+.display-comments li .post-footer .like-comment a span {
   color: black;
+}
+
+.display-comments li .post-footer .delete {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.display-comments li .post-footer .delete a {
+  width: 30%;
+  font-size: x-large;
+}
+
+.display-comments li .post-footer .delete i {
+  color: black;
+}
+
+.display-comments li .post-footer .delete:hover .dropdown {
+  display: block;
 }
 
 .display-comments::-webkit-scrollbar {

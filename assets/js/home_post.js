@@ -13,6 +13,9 @@
                     let newPost = newPostDom(data.data);
                     $('.display-posts').prepend(newPost);
                     deletePost(' .delete-post-button', newPost);
+                    let likeLink = $(`#post-${data.data.post._id} .like-posts`);
+                    // console.log("like link", likeLink);
+                    let toggleLike = new ToggleLike(likeLink);
                     new Noty({
                         type: 'success',
                         layout: 'topCenter',
@@ -41,9 +44,9 @@
                 </p>
                 <div class="post-footer">
                     <div class="like-comment">
-                        <a class="like-posts" href="/user/like"><i class="fa-regular fa-heart"></i></i></a>
-                        <a href="/user/comment/?id=${data.post._id}"><i class="fa-regular fa-comment"></i></a>
-                        <a href="/user/share"><i class="fa-solid fa-share"></i></a>
+                            <a class="like-posts" href="/user/like/?id=${data.post._id}&type=Post" data-likes="${data.post.likes.length}"><span class="likeCount">${data.post.likes.length}</span><i class="fa-regular fa-heart"></i></i></a>
+                            <a href="/user/comment/?id=${data.post._id}"><span>${data.post.comment.length}</span><i class="fa-regular fa-comment"></i></a>
+                            <a href="/user/share"><span>0</span><i class="fa-solid fa-share"></i></a>
                     </div>
                     <div class="delete">
                         <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>

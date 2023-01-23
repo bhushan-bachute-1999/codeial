@@ -36,7 +36,29 @@
                 ${data.comment.user.name}
             </h4>
             <p>${data.comment.content}</p>
-            <a class="delete-comment" href="/delete/comment/${data.comment._id}"><i class="fa-solid fa-trash"></i></a>
+            <div class="post-footer">
+                <div class="like-comment">
+                    <a class="like-comments" href="/user/like/?id=${data.comment.id}&type=Comment" data-likes="${data.comment.likes.length}">
+                        <span class="likeCount">
+                            ${data.comment.likes.length}
+                        </span>
+                        <i class="fa-regular fa-heart"></i></i>
+                    </a>
+                    <a href="/user/comment/?id=${data.comment._id}">
+                        <span>
+                            0
+                        </span>
+                        <i class="fa-regular fa-comment"></i>
+                    </a>
+                    <a href="/user/share">
+                        <span>0</span>
+                        <i class="fa-solid fa-share"></i>
+                    </a>
+                </div>
+                <div class="delete">
+                    <a class="delete-post-button" href="/delete/post/?id=${data.comment._id}"><i class="fa-solid fa-trash"></i></a>
+                </div>
+            </div>
         </li>`)
     }
 

@@ -44,7 +44,7 @@ module.exports.create = async function (req, res) {
         posts.comment.push(comment);
         posts.save(); 
 
-        comment = await comment.populate('user', 'name email');
+        comment = await (await comment.populate('user', 'name email')).populate('likes');
         // commentMailer.newComment(comment);
         let job = queue.create('emails', comment).save(function (err) {
             if (err) {

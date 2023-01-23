@@ -28,4 +28,11 @@
         <% } %>
     </ul>
 </section>
+<script src="/js/toggle_likes.js"></script>
 <script src="/js/home_post.js"></script>
+<script>
+    $('.like-posts').each(function () {
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+    });
+</script>

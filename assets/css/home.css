@@ -77,50 +77,57 @@
   align-items: center;
 }
 
-.display_user_post .display-posts li .post-footer div {
-  width: 5%;
-}
-
 .display_user_post .display-posts li .post-footer .like-comment {
   width: 60%;
+  height: 50px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .display_user_post .display-posts li .post-footer .like-comment a {
-  width: 20%;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  align-items: center;
+  justify-content: space-around;
+  text-decoration: none;
   font-size: x-large;
-}
-
-.display_user_post .display-posts li .post-footer .like-comment i {
+  padding-bottom: 10px;
+  text-decoration: none;
   color: black;
 }
 
-.display_user_post .display-posts li .post-footer .delete {
+.display_user_post .display-posts li .post-footer .like-comment a span {
+  color: black;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.display_user_post .display-posts li .delete {
   width: 30%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.display_user_post .display-posts li .post-footer .delete a {
+.display_user_post .display-posts li .delete a {
   width: 30%;
   font-size: x-large;
 }
 
-.display_user_post .display-posts li .post-footer .delete i {
+.display_user_post .display-posts li .delete i {
   color: black;
 }
 
-.display_user_post .display-posts li .post-footer .delete:hover .dropdown {
+.display_user_post .display-posts li .delete:hover .dropdown {
   display: block;
 }
 
-.display_user_post .display-posts::-webkit-scrollbar {
+.display-posts::-webkit-scrollbar {
   display: none;
 }
 
-.display_user_post .display_user {
+.display_user {
   width: 300px;
   border: 2px solid black;
   margin-top: 10px;
@@ -129,7 +136,7 @@
   margin-left: 10px;
 }
 
-.display_user_post .display_user li {
+.display_user li {
   background-color: cornsilk;
   height: 50px;
   margin-bottom: 10px;
@@ -140,10 +147,10 @@
   justify-content: space-between;
 }
 
-.display_user_post .display_user li p {
+.display_user li p {
   height: 60px;
 }
 
-.display_user_post .display_user::-webkit-scrollbar {
+.display_user::-webkit-scrollbar {
   display: none;
 }

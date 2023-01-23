@@ -14,7 +14,7 @@ router.post('/editProfile/', userController.editProfile);
 router.post('/post', passport.checkAuthentication, postController.post);
 router.get('/comment', passport.checkAuthentication, commentController.comment);
 router.post('/create-comment', createCommentController.create);
-router.get('/like', postLikeController.like);
+router.get('/like/', postLikeController.like);
 router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/log_in' }), validateController.validate);
 

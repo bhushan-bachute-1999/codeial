@@ -20,9 +20,44 @@
                 <%= comment.user.name %>
             </h4>
             <p><%= comment.content %></p>
-            <%  if(locals.user && locals.user.id == comment.user.id) { %> 
-                <a class="delete-comment" href="/delete/comment/<%=comment._id%>"><i class="fa-solid fa-trash"></i></a>
-            <% } %>
+            <div class="post-footer">
+                <div class="like-comment">
+                    <% if(locals.user){ %>
+                        <a class="like-comments" href="/user/like/?id=<%=comment.id%>&type=Comment" data-likes="<%= comment.likes.length%>">
+                            <span class="likeCount">
+                                <%= comment.likes.length %>
+                            </span>
+                            <i class="fa-regular fa-heart"></i></i>
+                        </a>
+                    <% }else{ %>
+                        <span>0</span>
+                    <% } %>
+                    <% if(locals.user){ %>
+                        <a href="/user/comment/?id=<%= comment._id %>">
+                            <span>
+                                0
+                            </span>
+                            <i class="fa-regular fa-comment"></i>
+                        </a>
+                    <% }else{ %>
+                        <span>0</span>
+                    <% } %>
+                    <% if(locals.user){ %>
+                        <a href="/user/share">
+                            <span>0</span>
+                            <i class="fa-solid fa-share"></i>
+                        </a>
+                    <% }else{ %>
+                        <span>0</span>
+                    <% } %>
+                </div>
+                <div class="delete">
+                    <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                    <% if((locals.user) && (locals.user.id==post.user.id)){ %>
+                        <a class="delete-post-button" href="/delete/post/?id=<%= post._id %>"><i class="fa-solid fa-trash"></i></a>
+                        <% } %>
+                </div>
+            </div>
         </li>
     <% } %>
 </ul>

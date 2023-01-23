@@ -9,14 +9,15 @@
         padding: 0%;
         margin-bottom: 10px;
 
-        a{
+        a {
             color: red;
             text-decoration: none;
             margin-right: 20px;
         }
     }
 
-    .new-post-form, .new-comment-form {
+    .new-post-form,
+    .new-comment-form {
         display: flex;
         align-items: center;
 
@@ -41,7 +42,7 @@
 
     li {
         background-color: cornsilk;
-        height: 100px;
+        height: 150px;
         margin-bottom: 10px;
         padding: 0px 10px;
         box-shadow: 0px 0px 1px 2px cornsilk;
@@ -82,18 +83,67 @@
 
             .like-comment {
                 width: 60%;
+                height: 50px;
+                display: flex;
+                justify-content: space-between;
+
+                i {
+                    color: black;
+                }
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    width: 15%;
+                    align-items: center;
+                    justify-content: space-around;
+
+                    span {
+                        margin-bottom: 2px;
+                        font-size: 0.8rem;
+                    }
+
+                    a {
+                        width: 30%;
+                        font-size: x-large;
+                    }
+                }
+
+                a {
+                    display: flex;
+                    flex-direction: column;
+                    width: 15%;
+                    align-items: center;
+                    justify-content: space-around;
+                    text-decoration: none;
+
+                    span {
+                        color: black;
+                    }
+                }
+            }
+
+            .delete {
+                width: 30%;
                 display: flex;
                 justify-content: space-around;
+                align-items: center;
+
+                a {
+                    width: 30%;
+                    font-size: x-large;
+                }
+
+                i {
+                    color: black;
+                }
+
             }
 
-            a {
-                width: 20%;
-                font-size: x-large;
+            .delete:hover .dropdown {
+                display: block;
             }
 
-            i {
-                color: black;
-            }
         }
     }
 }

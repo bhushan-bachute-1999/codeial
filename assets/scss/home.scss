@@ -75,81 +75,89 @@
                 justify-content: space-between;
                 align-items: center;
 
-                div {
-                    width: 5%;
-                }
-
                 .like-comment {
                     width: 60%;
+                    height: 50px;
                     display: flex;
-                    justify-content: space-around;
+                    justify-content: space-between;
 
                     a {
-                        width: 20%;
-                        font-size: x-large;
-                    }
-
-                    i {
-                        color: black;
-                    }
-                }
-
-                .delete {
-                    width: 30%;
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-
-                    a {
+                        display: flex;
+                        flex-direction: column;
                         width: 30%;
+                        align-items: center;
+                        justify-content: space-around;
+                        text-decoration: none;
                         font-size: x-large;
-                    }
-
-                    i {
+                        padding-bottom: 10px;
+                        text-decoration: none;
                         color: black;
+
+                        span {
+                            color: black;
+                            font-size: 1rem;
+                            margin-bottom: 2px;
+                        }
                     }
+                }
+            }
 
+            .delete {
+                width: 30%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                a {
+                    width: 30%;
+                    font-size: x-large;
                 }
 
-                .delete:hover .dropdown {
-                    display: block;
+                i {
+                    color: black;
                 }
 
             }
-        }
-    }
 
-    .display-posts::-webkit-scrollbar {
-        display: none;
-    }
-
-    .display_user {
-        width: 300px;
-        border: 2px solid black;
-        margin-top: 10px;
-        overflow-y: scroll;
-        padding: 5px 10px;
-        margin-left: 10px;
-
-
-        li {
-            background-color: cornsilk;
-            height: 50px;
-            margin-bottom: 10px;
-            padding: 0px 10px;
-            box-shadow: 0px 0px 1px 2px cornsilk;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-
-            p {
-                height: 60px;
-
-                
+            .delete:hover .dropdown {
+                display: block;
             }
+
         }
     }
-    .display_user::-webkit-scrollbar{
-        display: none;
+}
+
+.display-posts::-webkit-scrollbar {
+    display: none;
+}
+
+.display_user {
+    width: 300px;
+    border: 2px solid black;
+    margin-top: 10px;
+    overflow-y: scroll;
+    padding: 5px 10px;
+    margin-left: 10px;
+
+
+    li {
+        background-color: cornsilk;
+        height: 50px;
+        margin-bottom: 10px;
+        padding: 0px 10px;
+        box-shadow: 0px 0px 1px 2px cornsilk;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            height: 60px;
+
+
+        }
     }
+}
+
+.display_user::-webkit-scrollbar {
+    display: none;
 }

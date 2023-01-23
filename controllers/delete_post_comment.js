@@ -1,6 +1,7 @@
 const Post = require('../models/post');
 const Comment = require('../models/comments');
 const { post } = require('./post_controller');
+const Like = require('../models/like');
 /*
 module.exports.deletePost = function (req, res) {
     let postId = req.query.id;
@@ -33,8 +34,11 @@ module.exports.deletePost = async function (req, res) {
         let posts = await Post.findById(postId);
 
         if (posts.user == req.user.id) {
+            await Like.deleteMany({ likeable: postId, onModel: 'Post' });//Before deleting post delete all likes accociated with the post
+            await Like.deleteMany({ likeable: { $in: posts.comment }, onModel: 'Comment' });//Before deleting post delete likes on the post
+            
             posts.remove();
-            await Comment.deleteMany({ post: postId });
+            await Comment.deleteMany({ post: postId });//Before deleting post delete all comments
 
             if (req.xhr) {
                 return res.status(200).json({
@@ -52,7 +56,7 @@ module.exports.deletePost = async function (req, res) {
         return res.redirect('back');
     }
 }
-
+/*
 module.exports.deleteComment = function (req, res) {
     Comment.findById(req.params.id, function (err, comment) {
         if (err) {
@@ -86,4 +90,37 @@ module.exports.deleteComment = function (req, res) {
             return res.redirect('back');
         }
     });
+}
+*/
+module.exports.deleteComment = async function (req, res) {
+    try {
+        let comment = await Comment.findById(req.params.id);
+
+        if (comment.user == req.user.id) {
+            let postId = comment.post;
+            comment.remove();
+
+            let post = await Post.findByIdAndUpdate(postId, { $pull: { comment: req.params.id } });
+            await Like.deleteMany({likeable: comment._id, onModel: 'Comment'});
+
+            if (req.xhr) {
+                return res.status(200).json({
+                    data: {
+                        commentId: req.params.id
+                    },
+                    message: "Deleted successfully"
+                });
+            }
+            req.flash('success', 'Comment deleted successfully');
+            return res.redirect('back');
+        }
+        else {
+            req.flash('Error', 'Unauthorized for deleting');
+            return res.redirect('back');
+        }
+    }
+    catch (error) {
+        console.log('Error', error);
+        return;
+    }
 }

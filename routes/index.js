@@ -5,6 +5,7 @@ const passport = require('passport');
 const homeController = require('../controllers/home_controller');
 const contactController = require('../controllers/contact_controller');
 const signOutController = require('../controllers/sign_out_controller');
+const addFriendController = require('../controllers/add_friend_controller');
 
 console.log("Router loaded");
 router.get('/', homeController.home);//When "/" go to home controller
@@ -16,5 +17,6 @@ router.use('/log_in', require('./log_in'));
 router.get('/sign_out', signOutController.sign_out);
 router.use('/delete', require('./delete'));
 router.use('/api', require('./api'));//If api request then go to api foldder
+router.get('/add-friend', addFriendController.addFriend);
 
 module.exports = router;
