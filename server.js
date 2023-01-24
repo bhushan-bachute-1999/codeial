@@ -16,6 +16,7 @@ const customMware = require('./config/middleware');
 const path = require('path');
 
 const app = express();
+
 app.use(saasMiddleware({
     src: './assets/scss',
     dest: './assets/css',
@@ -23,6 +24,11 @@ app.use(saasMiddleware({
     outputStyle: 'expanded',
     prefix: '/css'
 }));
+
+const chatServer = require('http').Server(app);
+const chatSocket = require('./config/chat_socket').chatSocket(chatServer);
+chatServer.listen(5000);
+console.log('Chat socket is listening on port 5000');
 
 app.set('layout', 'layouts');//Select the layout which we want to use
 app.set('layout extractStyles', true);// Whenever the link tag is enountered place it in the head of html tag

@@ -31,14 +31,20 @@
     <% } %>
 </div>
 <div>
-    <%if((locals.user.id != user_detail.id) && locals.isFriend) { %>
-        <a class="add-friend" href="/add-friend/?fid=<%=user_detail.id%>">
-            Remove friend
-        </a>
-    <% } else {%>
+    <%if((locals.user.id != user_detail.id)) { %>
         <a class="add-friend" href="/add-friend/?fid=<%=user_detail.id%>">
             Add friend
         </a>
     <% } %>
 </div>
+<script>
+    let link = $('.add-friend');
+    console.log('<%= locals.isFriend %>');
+    if('<%= locals.isFriend %>' == 'true'){
+        link.html('Remove friend');
+    }
+    else{
+        link.html('Add friend');
+    }
+</script>
 <script src="/js/add_friend.js"></script>
