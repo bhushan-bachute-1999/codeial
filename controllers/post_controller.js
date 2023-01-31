@@ -23,8 +23,6 @@ module.exports.post = async (req, res) => {
             content: req.body.content,
             user: req.user._id
         });
-
-        let users = await User.findById(req.user.id);
         
         //if request is ajax request
         if (req.xhr) {

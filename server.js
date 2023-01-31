@@ -1,5 +1,6 @@
 const express = require('express'); // Include module express
 const port = 8000;// Define port
+const env = require('./config/environment');
 const expressLayouts = require('express-ejs-layouts');// Use layouts library
 const bodyParse = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -14,16 +15,21 @@ const saasMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 const path = require('path');
-
+const logger = require('morgan');
 const app = express();
+require('./config/view-helpers')(app);
 
-app.use(saasMiddleware({
-    src: './assets/scss',
-    dest: './assets/css',
-    // debug: true,
-    outputStyle: 'expanded',
-    prefix: '/css'
-}));
+if (env.name == 'development') {
+    app.use(saasMiddleware({
+        src: path.join(__dirname, env.asset_path, 'scss'),
+        dest: path.join(__dirname, env.asset_path, 'css'),
+        debug: true,
+        outputStyle: 'expanded',
+        prefix: '/css'
+    }));
+}
+
+console.log("Environment name : ",env.name);
 
 const chatServer = require('http').Server(app);
 const chatSocket = require('./config/chat_socket').chatSocket(chatServer);
@@ -36,16 +42,17 @@ app.set('layout extractScripts', true);// Whenever the script tag is enountered 
 app.set('view engine', 'ejs');//Setup view engine
 app.set('views', './views');//Give path to view folder
 
+app.use(logger(env.morgan.mode, env.morgan.options));//logs
 app.use('/uploads', express.static(__dirname + '/uploads')); 
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(expressLayouts);
-app.use(express.static('./assets'));
+app.use(express.static(`.${env.asset_path}`));
 app.use(session({
     name:"Codeial",
     //Todo later. Change keey before deployment to production
-    secret: "blahsomething",
-    saveUninitialized : false,
+    secret: env.session_cookie_key,
+    saveUninitialized : false, 
     resave: false,
     cookie:{
         maxAge: (1000 * 60 * 100)
