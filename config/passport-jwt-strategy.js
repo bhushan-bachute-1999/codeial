@@ -6,7 +6,7 @@ const env = require('./environment');
 
 let options = {
     jwtFromRequest: extractJWT.fromAuthHeaderAsBearerToken(),
-    secretOrKey: env.jwt_secret_key
+    secretOrKey: 'codeial'
 }
 
 passport.use(new JWTStrategy(options, function (jwtPayload, done) {

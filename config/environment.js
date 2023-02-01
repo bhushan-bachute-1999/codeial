@@ -69,7 +69,18 @@ module.exports = eval(process.env.CODEIAL_ENVIRONMENT) == 'development' ? develo
 // $env:CODEIAL_ASSET_PATH='./public/assets'
 // $env:CODEIAL_USER_EMAIL='testing.cn.1999@gmail.com'
 // $env:CODEIAL_USER_PASSWORD='wxtgrhrwedisfvwa'
-// $env:CODEIAL_GOOGLE_CLIENT_ID="139427455410-0l1vc77pkse7siojcbtkq625eootbah9.apps.googleusercontent.com"
-// $env:CODEIAL_GOOGLE_CLIENT_SECRET="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"
-// $env:CODEIAL_GOOGLE_CALLBACK_URL="http://localhost:8000/user/auth/google/callback"
-// $env:CODEIAL_JWT_SECRET_KEY='AC2243E25F941CA92A2E8485F972F' 
+// $env:CODEIAL_GOOGLE_CLIENT_ID='139427455410-0l1vc77pkse7siojcbtkq625eootbah9.apps.googleusercontent.com'
+// $env:CODEIAL_GOOGLE_CLIENT_SECRET='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'
+// $env:CODEIAL_GOOGLE_CALLBACK_URL='http://localhost:8000/user/auth/google/callback'
+// $env:CODEIAL_JWT_SECRET_KEY='AC2243E25F941CA92A2E8485F972F'
+
+// EXPORT CODEIAL_DB='codeial_development'
+// EXPORT CODEIAL_ENVIRONMENT='production'
+// EXPORT CODEIAL_SESSION_COOKIE_KEY='A79BD84189FDDA91689F14726DB48'
+// EXPORT CODEIAL_ASSET_PATH='./public/assets'
+// EXPORT CODEIAL_USER_EMAIL='testing.cn.1999@gmail.com'
+// EXPORT CODEIAL_USER_PASSWORD='wxtgrhrwedisfvwa'
+// EXPORT CODEIAL_GOOGLE_CLIENT_ID='139427455410-0l1vc77pkse7siojcbtkq625eootbah9.apps.googleusercontent.com'
+// EXPORT CODEIAL_GOOGLE_CLIENT_SECRET='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'
+// EXPORT CODEIAL_GOOGLE_CALLBACK_URL='http://localhost:8000/user/auth/google/callback'
+// EXPORT CODEIAL_JWT_SECRET_KEY='AC2243E25F941CA92A2E8485F972F' 
